@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  postgres_db_task:
+    container_name: postgres_db_task
+    image: postgres:14
+    restart: always
+    ports:
+      - "5440:5432"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=test_db
+    volumes:
+      - task_pgdata:/var/lib/postgresql/data 
+
+volumes:
+  task_pgdata:
